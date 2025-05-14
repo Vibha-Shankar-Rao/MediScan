@@ -1,0 +1,281 @@
+/* QRPage.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Base font settings */
+:root {
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
+  --color-primary: #6d4a7f; /* Darker purple to match image */
+  --color-secondary: #9b7bb1; /* Lighter purple */
+  --color-background: #e8dff0; /* Very light lavender */
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-info: #2196f3;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+}
+
+.qr-page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-image: url('/api/placeholder/1200/800'); /* Placeholder - will be replaced with real image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.qr-page-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(232, 223, 240, 0.7); /* Semi-transparent lavender overlay */
+  z-index: 1;
+}
+
+.qr-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  margin-top: 5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(109, 74, 127, 0.15);
+  border: 1px solid rgba(109, 74, 127, 0.1);
+}
+
+.qr-title {
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  font-family: var(--font-secondary);
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.qr-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  border-radius: 2px;
+}
+
+/* Button container to organize buttons */
+.button-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+/* Base button styles */
+.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(93, 71, 119, 0.15);
+  min-width: 170px;
+  font-family: var(--font-primary);
+  letter-spacing: 0.5px;
+}
+
+/* Specific styles for the select file button */
+.select-file-button {
+  background: linear-gradient(135deg, #9b7bb1, #6d4a7f);
+  color: white;
+}
+
+.select-file-button:hover {
+  background: linear-gradient(135deg, #ab8bc1, #7d5a8f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(109, 74, 127, 0.25);
+}
+
+/* Specific styles for the scan button */
+.scan-button {
+  background: linear-gradient(135deg, #7d5a8f, #6d4a7f);
+  color: white;
+}
+
+.scan-button:hover {
+  background: linear-gradient(135deg, #8d6a9f, #7d5a8f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(109, 74, 127, 0.25);
+}
+
+/* File name display */
+.file-name {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  font-family: var(--font-primary);
+  font-weight: 300;
+}
+
+/* Button icon styling */
+.button-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* Button text styling */
+.button-text {
+  font-family: var(--font-primary);
+  letter-spacing: 0.5px;
+}
+
+/* Status message styles */
+.status-message {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+  font-family: var(--font-primary);
+  letter-spacing: 0.2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.status-success {
+  background-color: rgba(76, 175, 80, 0.15);
+  color: #2e8b32;
+  border-left: 4px solid #4caf50;
+}
+
+.status-error {
+  background-color: rgba(244, 67, 54, 0.15);
+  color: #d32f2f;
+  border-left: 4px solid #f44336;
+}
+
+.status-info {
+  background-color: rgba(33, 150, 243, 0.15);
+  color: #1976d2;
+  border-left: 4px solid #2196f3;
+}
+
+.medicine-info {
+  margin-top: 2rem;
+  width: 100%;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.medicine-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: var(--font-primary);
+}
+
+.medicine-table th,
+.medicine-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.medicine-table th {
+  background-color: var(--color-primary);
+  color: white;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.medicine-table tr td:first-child {
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.medicine-table tr td:last-child {
+  font-weight: 400;
+}
+
+.medicine-table tr:nth-child(even) {
+  background-color: rgba(155, 123, 177, 0.05);
+}
+
+.medicine-table tr:hover {
+  background-color: rgba(155, 123, 177, 0.1);
+}
+
+.expiry-highlight {
+  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-secondary);
+}
+
+/* Additional styles for medicine table */
+.expiry-row {
+  background-color: rgba(155, 123, 177, 0.1) !important;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.status-valid {
+  background-color: rgba(76, 175, 80, 0.15);
+  color: #2e8b32;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.status-invalid {
+  background-color: rgba(244, 67, 54, 0.15);
+  color: #d32f2f;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Hide canvas used for QR processing */
+.hidden-canvas {
+  display: none;
+}

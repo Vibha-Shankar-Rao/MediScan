@@ -1,0 +1,46 @@
+//SCHEMA NAME=public SET search_path TO public
+create table tablets(
+tid SERIAL PRIMARY KEY,
+mid INT NOT NULL,
+expiry_date DATE,
+qrUUID UUID NOT NULL, 
+FOREIGN KEY (mid) REFERENCES medicines(id));
+
+create table medicines(
+id SERIAL PRIMARY KEY,
+medicine_name varchar(100),
+ingredient varchar(100),
+use varchar(100), 
+side_effect varchar(100),
+price INT);
+
+create table production_staff(
+id SERIAL PRIMARY KEY,
+name varchar(50),
+username varchar(50),
+password_hash varchar(70));
+
+INSERT INTO tablets(mid, expiry_date, qrUUID)
+VALUES (1, '2025-12-31', 'c31969a9-fbfd-46ab-9299-9de45eb450a7');
+
+INSERT INTO tablets(mid, expiry_date, qrUUID)
+VALUES (2, '2025-05-13', 'dd7f6143-8801-4f9f-9b44-0768acba40e8');
+
+INSERT INTO tablets(mid, expiry_date, qrUUID)
+VALUES (49, '2025-05-18', '7bbca690-8b8b-4a04-8c6a-7390bc3a2d90');
+
+INSERT INTO tablets(mid, expiry_date, qrUUID)
+VALUES (13, '2025-05-31', 'b1e6db5b-2a7b-415e-859b-3d92bceebb87');
+
+INSERT INTO tablets(mid, expiry_date, qrUUID)
+VALUES (25, '2025-05-08', 'f04a5808-5472-418c-bc60-4e2a8a726da7');
+
+//NEW VALUES ADDED FROM WEBSITE
+dd7f6143-8801-4f9f-9b44-0768acba40e8
+7bbca690-8b8b-4a04-8c6a-7390bc3a2d90
+b1e6db5b-2a7b-415e-859b-3d92bceebb87
+f04a5808-5472-418c-bc60-4e2a8a726da7
+
+INSERT INTO production_staff (name, username, password_hash)
+VALUES ('Admin User', 'admin', '$2b$10$VAthlnyCeaHHD4FoRx3tjuMHmluAoaJ9CKwW44kgyXnimuIxL1U32');
+//password:admin 123
